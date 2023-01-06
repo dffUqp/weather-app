@@ -7,8 +7,8 @@ const formatCurrentWeather = (data: IWeatherResponds): IFormateWeather => {
     main: { temp, feels_like, temp_min, temp_max, humidity },
     name,
     dt,
-    timezone,
     weather,
+    timezone,
     sys: { country, sunrise, sunset },
     wind: { speed },
   } = data;
@@ -16,10 +16,10 @@ const formatCurrentWeather = (data: IWeatherResponds): IFormateWeather => {
   const { main: details, icon } = weather[0];
 
   return {
-    timezone,
     lat,
     lon,
     temp,
+    timezone,
     feels_like,
     temp_min,
     temp_max,

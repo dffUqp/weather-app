@@ -1,6 +1,9 @@
-type TWeatherCoord = { lon: number; lat: number };
-
-type TSearchParams = { q: string } | TWeatherCoord;
+import {
+  TMainWeatherInfo,
+  TWeatherCoord,
+  TWeatherDetails,
+  TWeatherWind,
+} from './extraTypes';
 
 interface IWeatherResponds {
   base: string;
@@ -9,16 +12,7 @@ interface IWeatherResponds {
   coord: TWeatherCoord;
   dt: number;
   id: number;
-  main: {
-    feels_like: number;
-    grnd_level: number;
-    humidity: number;
-    pressure: number;
-    sea_level: number;
-    temp: number;
-    temp_max: number;
-    temp_min: number;
-  };
+  main: TMainWeatherInfo;
   name: string;
   sys: {
     country: string;
@@ -27,8 +21,8 @@ interface IWeatherResponds {
   };
   timezone: number;
   visibility: number;
-  weather: { id: number; main: string; description: string; icon: string }[];
-  wind: { deg: number; gust: number; speed: number };
+  weather: TWeatherDetails[];
+  wind: TWeatherWind;
 }
 
 interface IFormateWeather {
@@ -47,6 +41,7 @@ interface IFormateWeather {
   details: string;
   icon: string;
   speed: number;
+  timezone: number;
 }
 
-export type { TSearchParams, IWeatherResponds, IFormateWeather };
+export type { IWeatherResponds, IFormateWeather };

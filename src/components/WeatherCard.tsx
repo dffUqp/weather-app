@@ -7,6 +7,7 @@ import {
 } from '@mui/material';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
 import BgHover from './UI/BgHover';
 import WeatherService from '../services/watherServices';
@@ -24,6 +25,7 @@ export default function WeatherCard({
   lon,
   active = false,
 }: TWeatherCardProps) {
+  const navigate = useNavigate();
   const { data, isRefetching, refetch } = useQuery(
     `WeatherLat:${lat}Lon:${lon}`,
     () =>
@@ -71,7 +73,9 @@ export default function WeatherCard({
       }}
     >
       {active && (
-        <BgHover>
+        <BgHover
+          onClick={() => navigate(`/${data.name}`, { state: { lat, lon } })}
+        >
           <IconButton
             disableTouchRipple
             sx={{ position: 'absolute', right: '0' }}

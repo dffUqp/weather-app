@@ -41,20 +41,31 @@ export default function City() {
     }
   );
 
-  const isFavorite = useMemo(
-    () =>
-      favoriteCityes.find(
+  // Temporary function
+  const isFavorite = useMemo(() => {
+    if (cityState != null) {
+      return favoriteCityes.find(
         (v) => v.lat === cityState.lat && v.lon === cityState.lon
-      ),
-    [favoriteCityes, cityState]
-  );
+      );
+    }
+    return false;
+  }, [favoriteCityes, cityState]);
 
   if (isError) {
     return <Navigate to="/" />;
   }
 
   if (isRefetching || data == null) {
-    return <CircularProgress color="inherit" />;
+    return (
+      <Box
+        color="gray"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+      >
+        <CircularProgress color="inherit" />
+      </Box>
+    );
   }
 
   return (

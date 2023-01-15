@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { theme } from '../plugins';
+import { theme } from '../lib';
 
 interface IMuiWrapperProps {
   children: JSX.Element;

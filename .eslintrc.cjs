@@ -27,10 +27,18 @@ module.exports = {
     'react/no-array-index-key': 0,
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 0,
+    'react/function-component-definition': 0,
+    '@typescript-eslint/no-empty-interface': 'warn',
     'prettier/prettier': [
       'warn',
       {
         endOfLine: 'auto',
+      },
+    ],
+    'no-restricted-imports': [
+      'error',
+      {
+        patterns: ['@mui/*/*/*'],
       },
     ],
   },

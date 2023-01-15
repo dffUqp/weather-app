@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { describe, it } from 'vitest';
 
 import Home from '../pages/Home';
-import { queryClient } from '../plugins';
+import { queryClient } from '../lib';
 import renderWithRedux from './renderWithRedux';
 
 describe('HomePage', () => {

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import MuiWrapper from './components/MuiWrapper';
-import { queryClient } from './plugins';
+import { queryClient } from './lib';
 import router from './routes/router';
 
 import { persistor, store } from './store';

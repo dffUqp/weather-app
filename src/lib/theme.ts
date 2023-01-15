@@ -5,7 +5,6 @@ import {
   Components,
   Theme,
 } from '@mui/material';
-import { blue, cyan } from '@mui/material/colors';
 import { BreakpointsOptions } from '@mui/material/styles';
 
 const typography: TypographyVariantsOptions = {
@@ -14,9 +13,12 @@ const typography: TypographyVariantsOptions = {
 
 const palette: PaletteOptions = {
   primary: {
-    main: blue[500],
-    light: blue[400],
-    dark: blue[700],
+    main: '#2196f3',
+    light: '#42a5f5',
+    dark: '#1976d2',
+  },
+  text: {
+    primary: '#ffffff',
   },
 };
 
@@ -33,15 +35,20 @@ const breakpoints: BreakpointsOptions = {
 const components: Components<Omit<Theme, 'components'>> = {
   MuiCssBaseline: {
     styleOverrides: {
+      '*': {
+        boxSizing: 'border-box',
+      },
       body: {
-        backgroundColor: blue[500],
-        backgroundImage: `linear-gradient(to right, ${cyan[700]} 0%, ${blue[500]} 100%)`,
+        backgroundColor: '#0097a7',
+        backgroundImage: 'linear-gradient(to right, #0097a7 0%, #2196f3 100%)',
       },
     },
   },
-  MuiTypography: {
-    defaultProps: {
-      color: 'white',
+  MuiPaper: {
+    styleOverrides: {
+      root: {
+        backgroundColor: 'transparent',
+      },
     },
   },
 };

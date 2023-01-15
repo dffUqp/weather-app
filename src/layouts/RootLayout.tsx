@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import { IconButton, Box } from '@mui/material';
-import CitySearch from '../components/CitySearch';
+import CitySearch from '../components/City/CitySearch';
 
 export default function RootLayout() {
   return (

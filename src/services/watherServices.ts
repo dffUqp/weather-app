@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios';
 
-import { axios } from '../plugins';
+import { axios } from '../lib';
 import {
   TCityResponds,
   TCitySearchParams,

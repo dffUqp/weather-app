@@ -3,10 +3,10 @@ import debounce from 'lodash.debounce';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import WeatherService from '../services/watherServices';
-import { TWeatherCoord } from '../ts/extraTypes';
+import WeatherService from '../../services/watherServices';
+import { TWeatherCoord } from '../../ts/extraTypes';
 
-type TAutocompleteOprions =
+type TAutocompleteOptions =
   | ({
       label: string;
     } & TWeatherCoord)
@@ -15,7 +15,7 @@ type TAutocompleteOprions =
 export default function CitySearch() {
   const [query, setQuery] = useState<string>('');
   const navigate = useNavigate();
-  const [curentOption, setCurentOption] = useState<TAutocompleteOprions>(null);
+  const [curentOption, setCurentOption] = useState<TAutocompleteOptions>(null);
 
   const { data } = useQuery(
     [`SearchCity`, query],
@@ -43,7 +43,7 @@ export default function CitySearch() {
 
   const changeValue = (
     event: React.SyntheticEvent<Element, Event>,
-    value: TAutocompleteOprions | string
+    value: TAutocompleteOptions | string
   ) => {
     if (
       value == null ||

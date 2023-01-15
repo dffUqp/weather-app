@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { Box, Typography, Paper } from '@mui/material';
 
-import WeatherService from '../services/watherServices';
+import WeatherService from '../services/weatherServices';
 import { iconUrlFromCode, toLocalTime } from '../utils';
 
 type THourlyForecastProps = {

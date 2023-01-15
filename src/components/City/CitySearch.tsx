@@ -3,7 +3,7 @@ import debounce from 'lodash.debounce';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import WeatherService from '../../services/watherServices';
+import WeatherService from '../../services/weatherServices';
 import { TWeatherCoord } from '../../ts/extraTypes';
 
 type TAutocompleteOptions =

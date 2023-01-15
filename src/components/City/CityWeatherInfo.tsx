@@ -5,7 +5,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectWeatherCards } from '../../store/selectors';
-import WeatherService from '../../services/watherServices';
+import WeatherService from '../../services/weatherServices';
 import type { TWeatherCoord } from '../../ts/extraTypes';
 import HourlyForecast from '../HourlyForecast';
 import { iconUrlFromCode, toLocalTime } from '../../utils';

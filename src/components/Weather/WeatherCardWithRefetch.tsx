@@ -4,7 +4,7 @@ import CachedIcon from '@mui/icons-material/Cached';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import WeatherService from '../../services/watherServices';
+import WeatherService from '../../services/weatherServices';
 import type { TWeatherCoord } from '../../ts/extraTypes';
 import BgHover from '../UI/BgHover';
 import WeatherCard from './WeatherCard';

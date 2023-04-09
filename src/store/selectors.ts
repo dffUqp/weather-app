@@ -1,5 +1,14 @@
 import { AppState } from '.';
 
-// eslint-disable-next-line import/prefer-default-export
-export const selectWeatherCards = (state: AppState) =>
+export const weatherCardsSelector = (state: AppState) =>
   state.persistedReducer.weatherCardsReducer.weatherCards;
+
+export const isFavoriteSelector = (
+  state: AppState,
+  lat: number,
+  lon: number
+) => {
+  return weatherCardsSelector(state).find(
+    (value) => value.lat === lat && value.lon === lon
+  );
+};

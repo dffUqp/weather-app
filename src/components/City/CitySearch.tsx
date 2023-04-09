@@ -3,8 +3,8 @@ import debounce from 'lodash.debounce';
 import { useMemo, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import WeatherService from '../../services/weatherServices';
-import { TWeatherCoord } from '../../ts/extraTypes';
+import WeatherService from 'src/services/weatherServices';
+import { TWeatherCoord } from 'src/ts/extraTypes';
 
 type TAutocompleteOptions =
   | ({
@@ -35,11 +35,6 @@ export default function CitySearch() {
 
     setQuery(value);
   };
-
-  const debouncedChangeHandler = useMemo(
-    () => debounce(changeHandler, 500),
-    []
-  );
 
   const changeValue = (
     event: React.SyntheticEvent<Element, Event>,
@@ -79,7 +74,7 @@ export default function CitySearch() {
       value={curentOption}
       filterOptions={(x) => x}
       onChange={changeValue}
-      onInputChange={debouncedChangeHandler}
+      onInputChange={debounce(changeHandler, 500)}
       renderInput={(params) => (
         <TextField
           {...params}

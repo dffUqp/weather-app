@@ -1,17 +1,18 @@
-import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { Box, Paper, Typography, IconButton } from '@mui/material';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
-import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { selectWeatherCards } from '../../store/selectors';
-import WeatherService from '../../services/weatherServices';
-import type { TWeatherCoord } from '../../ts/extraTypes';
-import HourlyForecast from '../HourlyForecast';
-import { iconUrlFromCode, toLocalTime } from '../../utils';
-import { addCards, deleteCards } from '../../store/slices/weatherCardsSlice';
-import SecWeatherInfo from '../SecWeatherInfo';
-import Loader from '../UI/Loader';
+
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
+import { isFavoriteSelector } from 'src/store/selectors';
+import WeatherService from 'src/services/weatherServices';
+import Loader from 'src/components/UI/Loader';
+import type { TWeatherCoord } from 'src/ts/extraTypes';
+import { iconUrlFromCode, toLocalTime } from 'src/utils';
+import { addCards, deleteCards } from 'src/store/slices/weatherCardsSlice';
+
+import WeatherInfo from '../WeatherInfo';
+import { HourlyForecast } from '../HourlyForecast';
 
 interface CityWeatherInfoProps {
   coord: TWeatherCoord;
@@ -19,7 +20,9 @@ interface CityWeatherInfoProps {
 }
 
 const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
-  const favoriteCityes = useAppSelector(selectWeatherCards);
+  const isFavorite = useAppSelector((state) =>
+    isFavoriteSelector(state, coord.lat, coord.lon)
+  );
   const dispatch = useAppDispatch();
 
   const { data, isRefetching } = useQuery(['city', pathname], () => {
@@ -29,15 +32,12 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
     });
   });
 
-  // Temporary function
-  const isFavorite = useMemo(() => {
-    return favoriteCityes.find(
-      (value) => value.lat === coord.lat && value.lon === coord.lon
-    );
-  }, [favoriteCityes, coord]);
-
   if (isRefetching || data == null) {
-    return <Loader />;
+    return (
+      <Box height="95vh">
+        <Loader />
+      </Box>
+    );
   }
 
   return (
@@ -60,9 +60,20 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
           <Box>
             <img src={iconUrlFromCode(data.icon)} alt="" width={115} />
 
-            <Typography fontSize="24px" borderBottom="1px solid #D3D3D3">
-              {data.name}, {data.country}
-            </Typography>
+            <Box display="flex" borderBottom="1px solid #D3D3D3">
+              <Typography
+                fontSize="24px"
+                maxWidth="140px"
+                textOverflow="ellipsis"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textTransform="capitalize"
+                marginRight={1}
+              >
+                {data.name},
+              </Typography>
+              <Typography fontSize="24px">{data.country}</Typography>
+            </Box>
 
             <Typography fontSize="48px">{`${data.temp.toFixed()}°C`}</Typography>
 
@@ -82,7 +93,7 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
           </IconButton>
         </Box>
 
-        <SecWeatherInfo
+        <WeatherInfo
           mt={2}
           humidity={data.humidity}
           speed={data.speed}

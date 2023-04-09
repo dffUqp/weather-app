@@ -3,18 +3,18 @@ import DeviceThermostatIcon from '@mui/icons-material/DeviceThermostat';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import AirIcon from '@mui/icons-material/Air';
 
-type SecWeatherInfoProps = {
+type WeatherInfoProps = {
   feels_like: number;
   humidity: number;
   speed: number;
 } & BoxProps<'div'>;
 
-export default function SecWeatherInfo({
+export default function WeatherInfo({
   feels_like,
   humidity,
   speed,
   ...props
-}: SecWeatherInfoProps) {
+}: WeatherInfoProps) {
   return (
     <Box
       display="flex"
@@ -26,7 +26,7 @@ export default function SecWeatherInfo({
     >
       <Box display="flex" alignItems="center">
         <DeviceThermostatIcon fontSize="small" sx={{ mr: 1 }} />
-        Real fell:
+        Real feel:
         <Typography
           display="inline"
           ml={1}

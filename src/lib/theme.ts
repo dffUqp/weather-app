@@ -51,6 +51,14 @@ const components: Components<Omit<Theme, 'components'>> = {
       },
     },
   },
+  MuiAutocomplete: {
+    styleOverrides: {
+      paper: {
+        color: 'black',
+        backgroundColor: 'white',
+      },
+    },
+  },
 };
 
 const theme = createTheme({

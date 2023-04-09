@@ -1,5 +1,5 @@
 import { Container } from '@mui/material';
-import WeatherBoard from '../components/Weather/WeatherBoard';
+import WeatherBoard from 'src/components/Weather/WeatherBoard';
 
 export default function Home() {
   return (

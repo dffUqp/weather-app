@@ -1,7 +1,7 @@
 import { Box, Paper, Typography, PaperProps } from '@mui/material';
-import SecWeatherInfo from '../SecWeatherInfo';
-import { iconUrlFromCode } from '../../utils';
-import { IFormateWeather } from '../../ts/weatherTypes';
+import { iconUrlFromCode } from 'src/utils';
+import { IFormateWeather } from 'src/ts/weatherTypes';
+import WeatherInfo from '../WeatherInfo';
 
 type TWeatherCardProps = {
   data: IFormateWeather;
@@ -47,11 +47,7 @@ export default function WeatherCard({ data, ...props }: TWeatherCardProps) {
 
         <Typography fontSize={48}>{`${temp.toFixed()}°C`}</Typography>
 
-        <SecWeatherInfo
-          humidity={humidity}
-          speed={speed}
-          feels_like={feelsLike}
-        />
+        <WeatherInfo humidity={humidity} speed={speed} feels_like={feelsLike} />
       </Box>
     </Paper>
   );

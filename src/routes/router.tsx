@@ -1,19 +1,25 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import Loader from '../components/UI/Loader';
+import Loader from 'src/components/UI/Loader';
 
 const Loadable = (Component: React.LazyExoticComponent<() => JSX.Element>) =>
   function Loadable(props: any) {
     return (
-      <Suspense fallback={<Loader />}>
+      <Suspense
+        fallback={
+          <div style={{ height: '100vh' }}>
+            <Loader />
+          </div>
+        }
+      >
         <Component {...props} />
       </Suspense>
     );
   };
 
-const City = Loadable(lazy(() => import('../pages/City')));
-const Home = Loadable(lazy(() => import('../pages/Home')));
-const RootLayout = Loadable(lazy(() => import('../layouts/RootLayout')));
+const City = Loadable(lazy(() => import('src/pages/City')));
+const Home = Loadable(lazy(() => import('src/pages/Home')));
+const RootLayout = Loadable(lazy(() => import('src/layouts/RootLayout')));
 
 const router = createBrowserRouter([
   {
@@ -30,6 +36,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: '*', element: <div /> },
 ]);
 
 export default router;

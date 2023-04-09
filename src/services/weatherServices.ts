@@ -1,14 +1,14 @@
 import type { AxiosResponse } from 'axios';
 
-import { axios } from '../lib';
+import { axios } from 'src/lib';
 import {
   TCityResponds,
   TCitySearchParams,
   TWeatherSearchParams,
-} from '../ts/extraTypes';
-import { IHourlyWeatherResponds } from '../ts/hourlyWeatherTypes';
-import type { IWeatherResponds } from '../ts/weatherTypes';
-import { formatCurrentWeather, formatHourlyWeather } from '../utils';
+} from 'src/ts/extraTypes';
+import { IHourlyWeatherResponds } from 'src/ts/hourlyWeatherTypes';
+import type { IWeatherResponds } from 'src/ts/weatherTypes';
+import { formatCurrentWeather, formatHourlyWeather } from 'src/utils';
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
@@ -18,8 +18,8 @@ export default class WeatherService {
       method: 'GET',
       url: 'data/2.5/weather',
       params: { appid: API_KEY, ...searchParams },
-    }).then(async (data: AxiosResponse<Promise<IWeatherResponds>>) =>
-      formatCurrentWeather(await data.data)
+    }).then((data: AxiosResponse<IWeatherResponds>) =>
+      formatCurrentWeather(data.data)
     );
   }
 
@@ -28,7 +28,7 @@ export default class WeatherService {
       method: 'GET',
       url: 'geo/1.0/direct',
       params: { appid: API_KEY, limit: 5, ...searchParams },
-    }).then((data: AxiosResponse<Promise<TCityResponds[]>>) => data.data);
+    }).then((data: AxiosResponse<TCityResponds[]>) => data.data);
   }
 
   static async getHourlyForecast(searchParams: TWeatherSearchParams) {
@@ -36,8 +36,8 @@ export default class WeatherService {
       method: 'GET',
       url: 'data/2.5/forecast',
       params: { appid: API_KEY, cnt: 8, ...searchParams },
-    }).then(async (data: AxiosResponse<Promise<IHourlyWeatherResponds>>) =>
-      formatHourlyWeather((await data.data).list)
+    }).then((data: AxiosResponse<IHourlyWeatherResponds>) =>
+      formatHourlyWeather(data.data.list)
     );
   }
 }

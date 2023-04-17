@@ -12,3 +12,6 @@ export const isFavoriteSelector = (
     (value) => value.lat === lat && value.lon === lon
   );
 };
+
+export const isFullFavoriteListSelector = (state: AppState) =>
+  state.persistedReducer.weatherCardsReducer.weatherCards.length >= 8;

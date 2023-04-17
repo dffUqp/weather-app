@@ -4,7 +4,10 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
-import { isFavoriteSelector } from 'src/store/selectors';
+import {
+  isFavoriteSelector,
+  isFullFavoriteListSelector,
+} from 'src/store/selectors';
 import WeatherService from 'src/services/weatherServices';
 import Loader from 'src/components/UI/Loader';
 import type { TWeatherCoord } from 'src/ts/extraTypes';
@@ -23,6 +26,7 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
   const isFavorite = useAppSelector((state) =>
     isFavoriteSelector(state, coord.lat, coord.lon)
   );
+  const isFullFavoriteList = useAppSelector(isFullFavoriteListSelector);
   const dispatch = useAppDispatch();
 
   const { data, isRefetching } = useQuery(['city', pathname], () => {
@@ -31,6 +35,14 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
       ...coord,
     });
   });
+
+  const handleFavorite = () => {
+    if (isFavorite) {
+      dispatch(deleteCards(coord));
+      return;
+    }
+    dispatch(addCards(coord));
+  };
 
   if (isRefetching || data == null) {
     return (
@@ -83,11 +95,8 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
             </Box>
           </Box>
           <IconButton
-            onClick={() =>
-              isFavorite
-                ? dispatch(deleteCards(coord))
-                : dispatch(addCards(coord))
-            }
+            onClick={handleFavorite}
+            disabled={isFullFavoriteList && !isFavorite}
           >
             {isFavorite ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>

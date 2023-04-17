@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TWeatherCoord } from '../../ts/extraTypes';
+import { TWeatherCoord } from 'src/ts/extraTypes';
 
 type TWeatherCard = {
   weatherCards: TWeatherCoord[];

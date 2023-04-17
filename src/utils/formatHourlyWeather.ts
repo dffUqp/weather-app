@@ -3,7 +3,7 @@
 import {
   IFormatedHourlyWeather,
   IHourlyWeather,
-} from '../ts/hourlyWeatherTypes';
+} from 'src/ts/hourlyWeatherTypes';
 
 const formatHourlyWeather = (
   data: IHourlyWeather[]

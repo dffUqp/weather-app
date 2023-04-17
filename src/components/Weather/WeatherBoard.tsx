@@ -14,7 +14,7 @@ function WeatherBoard() {
         minHeight: 650,
         height: 'auto',
         margin: '10px auto 5px',
-        p: '12px',
+        p: '10px',
       }}
     >
       <Grid container rowSpacing={2} columnSpacing={{ xs: 3, md: 6 }}>
@@ -26,14 +26,7 @@ function WeatherBoard() {
           </Box>
         )}
         {favoriteCityArray.map((city, index) => (
-          <Grid
-            item
-            xs="auto"
-            sm={4}
-            md={3}
-            key={index}
-            data-testid="card-item"
-          >
+          <Grid item xs="auto" sm={4} md={3} key={index}>
             <WeatherCardWithActions lat={city.lat} lon={city.lon} />
           </Grid>
         ))}

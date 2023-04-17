@@ -1,6 +1,6 @@
 import { TextField, Autocomplete } from '@mui/material';
 import debounce from 'lodash.debounce';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import WeatherService from 'src/services/weatherServices';

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import Loader from 'src/components/UI/Loader';
 
 const Loadable = (Component: React.LazyExoticComponent<() => JSX.Element>) =>
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
     ],
   },
-  { path: '*', element: <div /> },
+  { path: '*', element: <Navigate to="/" replace /> },
 ]);
 
 export default router;

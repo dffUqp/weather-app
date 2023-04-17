@@ -25,8 +25,8 @@ function WeatherBoard() {
             </Typography>
           </Box>
         )}
-        {favoriteCityArray.map((city, index) => (
-          <Grid item xs="auto" sm={4} md={3} key={index}>
+        {favoriteCityArray.map((city) => (
+          <Grid item xs="auto" sm={4} md={3} key={`${city.lat}-${city.lon}`}>
             <WeatherCardWithActions lat={city.lat} lon={city.lon} />
           </Grid>
         ))}

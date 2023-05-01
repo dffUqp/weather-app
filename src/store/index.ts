@@ -16,6 +16,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import weatherCardsReducer from './slices/weatherCardsSlice';
+import themeReducer from './slices/themeSlice';
 
 const persistConfig = {
   key: 'root',
@@ -24,6 +25,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   weatherCardsReducer,
+  themeReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

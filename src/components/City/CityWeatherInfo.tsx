@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Box, Paper, Typography, IconButton } from '@mui/material';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
@@ -11,8 +12,9 @@ import {
 import WeatherService from 'src/services/weatherServices';
 import Loader from 'src/components/UI/Loader';
 import type { TWeatherCoord } from 'src/ts/extraTypes';
-import { iconUrlFromCode, toLocalTime } from 'src/utils';
+import { backgroundValuesMap, iconUrlFromCode, toLocalTime } from 'src/utils';
 import { addCards, deleteCards } from 'src/store/slices/weatherCardsSlice';
+import { setBackgroundColor } from 'src/store/slices/themeSlice';
 
 import WeatherInfo from '../WeatherInfo';
 import { HourlyForecast } from '../HourlyForecast';
@@ -29,12 +31,24 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
   const isFullFavoriteList = useAppSelector(isFullFavoriteListSelector);
   const dispatch = useAppDispatch();
 
-  const { data, isRefetching } = useQuery(['city', pathname], () => {
-    return WeatherService.getWeather({
-      units: 'metric',
-      ...coord,
-    });
-  });
+  const { data, isRefetching } = useQuery(
+    ['city', pathname],
+    () => {
+      return WeatherService.getWeather({
+        units: 'metric',
+        ...coord,
+      });
+    },
+    {
+      onSuccess: (data) => {
+        dispatch(
+          setBackgroundColor(
+            backgroundValuesMap[data.details] ?? backgroundValuesMap.default
+          )
+        );
+      },
+    }
+  );
 
   const handleFavorite = () => {
     if (isFavorite) {

@@ -3,7 +3,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { IconButton, Box } from '@mui/material';
 import CitySearch from 'src/components/City/CitySearch';
 
-export default function RootLayout() {
+function RootLayout() {
   return (
     <>
       <header>
@@ -22,3 +22,5 @@ export default function RootLayout() {
     </>
   );
 }
+
+export default RootLayout;

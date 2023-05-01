@@ -15,3 +15,12 @@ export const isFavoriteSelector = (
 
 export const isFullFavoriteListSelector = (state: AppState) =>
   state.persistedReducer.weatherCardsReducer.weatherCards.length >= 8;
+
+export const newBackgroundValueSelector = (state: AppState) =>
+  state.persistedReducer.themeReducer.backgroundValue;
+
+export const currentBackgroundValueSelector = (state: AppState) =>
+  state.persistedReducer.themeReducer.currentBackgroundValue;
+
+export const backgroundColorSelector = (state: AppState) =>
+  state.persistedReducer.themeReducer.backgroundColor;

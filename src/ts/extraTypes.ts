@@ -1,5 +1,8 @@
+type TColorValue = { r: number; g: number; b: number };
+
 type TWeatherCoord = { lon: number; lat: number };
 type TUnits = 'metric' | 'imperial' | 'standard';
+type TDetails = 'Rain' | 'Clouds' | 'Clear' | 'Snow';
 
 type TWeatherSearchParams = TWeatherCoord & { units: TUnits };
 
@@ -18,7 +21,7 @@ type TMainWeatherInfo = {
 
 type TWeatherDetails = {
   id: number;
-  main: string;
+  main: TDetails;
   description: string;
   icon: string;
 };
@@ -36,6 +39,7 @@ type TCityResponds = {
 } & TWeatherCoord;
 
 export type {
+  TDetails,
   TCityResponds,
   TWeatherCoord,
   TUnits,
@@ -44,4 +48,5 @@ export type {
   TMainWeatherInfo,
   TWeatherDetails,
   TWeatherWind,
+  TColorValue,
 };

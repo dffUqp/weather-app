@@ -1,4 +1,5 @@
 import {
+  TDetails,
   TMainWeatherInfo,
   TWeatherCoord,
   TWeatherDetails,
@@ -38,7 +39,7 @@ interface IFormateWeather {
   country: string;
   sunrise: number;
   sunset: number;
-  details: string;
+  details: TDetails;
   icon: string;
   speed: number;
   timezone: number;

@@ -18,12 +18,6 @@ This project uses the following packages:
 
 
 
-## Clone the project
-
-```sh
-git clone https://github.com/dffUqp/weather-app.git
-```
-
 ## Preview 
 
 ![image](https://user-images.githubusercontent.com/96138503/230950332-5d90c2f6-4c0f-4c2e-ae63-8af6778ecb58.png)

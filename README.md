@@ -20,6 +20,7 @@ This project uses the following packages:
 
 ## Preview 
 
-![image](https://user-images.githubusercontent.com/96138503/230950332-5d90c2f6-4c0f-4c2e-ae63-8af6778ecb58.png)
+![image](https://user-images.githubusercontent.com/96138503/236626611-3c23c8c1-17c4-4e6c-a5c3-f4b6ce1d7c6e.png)
 
-![image](https://user-images.githubusercontent.com/96138503/230950477-53622fa3-7066-4087-a268-a147a506067f.png)
+![image](https://user-images.githubusercontent.com/96138503/236626613-8397334a-eb53-4e2a-b3eb-5c9b170d26e9.png)
+

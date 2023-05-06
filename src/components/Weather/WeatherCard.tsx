@@ -1,10 +1,10 @@
 import { Box, Paper, Typography, PaperProps } from '@mui/material';
 import { iconUrlFromCode } from 'src/utils';
-import { IFormateWeather } from 'src/ts/weatherTypes';
+import { IFormattedWeather } from 'src/ts/weatherTypes';
 import WeatherInfo from '../WeatherInfo';
 
 type TWeatherCardProps = {
-  data: IFormateWeather;
+  data: IFormattedWeather;
 } & PaperProps<'div'>;
 
 export default function WeatherCard({ data, ...props }: TWeatherCardProps) {

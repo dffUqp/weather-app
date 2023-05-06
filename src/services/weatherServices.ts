@@ -7,7 +7,7 @@ import {
   TWeatherSearchParams,
 } from 'src/ts/extraTypes';
 import { IHourlyWeatherResponds } from 'src/ts/hourlyWeatherTypes';
-import type { IWeatherResponds } from 'src/ts/weatherTypes';
+import type { IWeatherResponse } from 'src/ts/weatherTypes';
 import { formatCurrentWeather, formatHourlyWeather } from 'src/utils';
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -18,7 +18,7 @@ export default class WeatherService {
       method: 'GET',
       url: 'data/2.5/weather',
       params: { appid: API_KEY, ...searchParams },
-    }).then((data: AxiosResponse<IWeatherResponds>) =>
+    }).then((data: AxiosResponse<IWeatherResponse>) =>
       formatCurrentWeather(data.data)
     );
   }

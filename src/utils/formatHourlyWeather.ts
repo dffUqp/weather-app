@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 
 import {
-  IFormatedHourlyWeather,
+  IFormattedHourlyWeather,
   IHourlyWeather,
 } from 'src/ts/hourlyWeatherTypes';
 
 const formatHourlyWeather = (
   data: IHourlyWeather[]
-): IFormatedHourlyWeather[] => {
+): IFormattedHourlyWeather[] => {
   return data.map((value) => {
     const {
       main: { temp, feels_like, temp_min, temp_max, humidity },

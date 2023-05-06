@@ -1,4 +1,4 @@
-import { IFormateWeather, IWeatherResponds } from './weatherTypes';
+import { IFormattedWeather, IWeatherResponse } from './weatherTypes';
 
 interface IHourlyWeatherResponds {
   cod: string;
@@ -7,9 +7,9 @@ interface IHourlyWeatherResponds {
   list: IHourlyWeather[];
 }
 
-interface IFormatedHourlyWeather
+interface IFormattedHourlyWeather
   extends Omit<
-    IFormateWeather,
+    IFormattedWeather,
     'lat' | 'lon' | 'sunrise' | 'sunset' | 'country' | 'name' | 'timezone'
   > {
   dt_txt: number;
@@ -17,7 +17,7 @@ interface IFormatedHourlyWeather
 
 interface IHourlyWeather
   extends Omit<
-    IWeatherResponds,
+    IWeatherResponse,
     'coord' | 'sys' | 'timezone' | 'id' | 'base' | 'name'
   > {
   sys: {
@@ -29,4 +29,4 @@ interface IHourlyWeather
   dt_txt: number;
 }
 
-export type { IHourlyWeatherResponds, IHourlyWeather, IFormatedHourlyWeather };
+export type { IHourlyWeatherResponds, IHourlyWeather, IFormattedHourlyWeather };

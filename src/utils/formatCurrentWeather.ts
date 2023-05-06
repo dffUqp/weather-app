@@ -1,6 +1,6 @@
-import { IFormateWeather, IWeatherResponds } from '../ts/weatherTypes';
+import { IFormattedWeather, IWeatherResponse } from '../ts/weatherTypes';
 
-const formatCurrentWeather = (data: IWeatherResponds): IFormateWeather => {
+const formatCurrentWeather = (data: IWeatherResponse): IFormattedWeather => {
   const {
     coord: { lat, lon },
     // eslint-disable-next-line @typescript-eslint/naming-convention

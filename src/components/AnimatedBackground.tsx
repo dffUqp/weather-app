@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 import gradientAnimation from 'src/utils/gradientAnimation';
-import { setCurrentBackgoundValue } from 'src/store/slices/themeSlice';
+import { setCurrentBackgroundValue } from 'src/store/slices/themeSlice';
 import {
   backgroundColorSelector,
   currentBackgroundValueSelector,
@@ -27,7 +27,7 @@ const AnimatedBackground = () => {
         currentGradient: currentBackgroundValue,
         newGradient: newBackgroundValue,
       });
-      dispatch(setCurrentBackgoundValue());
+      dispatch(setCurrentBackgroundValue());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newBackgroundValue]);

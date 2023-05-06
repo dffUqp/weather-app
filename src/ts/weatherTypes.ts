@@ -6,7 +6,7 @@ import {
   TWeatherWind,
 } from './extraTypes';
 
-interface IWeatherResponds {
+interface IWeatherResponse {
   base: string;
   clouds: { all: number };
   cod: number;
@@ -26,7 +26,7 @@ interface IWeatherResponds {
   wind: TWeatherWind;
 }
 
-interface IFormateWeather {
+interface IFormattedWeather {
   lat: number;
   lon: number;
   temp: number;
@@ -45,4 +45,4 @@ interface IFormateWeather {
   timezone: number;
 }
 
-export type { IWeatherResponds, IFormateWeather };
+export type { IWeatherResponse, IFormattedWeather };

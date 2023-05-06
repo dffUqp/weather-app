@@ -34,14 +34,14 @@ const themeSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.backgroundColor = `linear-gradient(90deg, rgb(${firstColor}), rgb(${secondColor}))`;
     },
-    setCurrentBackgoundValue: (state) => {
+    setCurrentBackgroundValue: (state) => {
       // eslint-disable-next-line no-param-reassign
       state.currentBackgroundValue = state.backgroundValue;
     },
   },
 });
 
-export const { setBackgroundColor, setCurrentBackgoundValue } =
+export const { setBackgroundColor, setCurrentBackgroundValue } =
   themeSlice.actions;
 
 export default themeSlice.reducer;

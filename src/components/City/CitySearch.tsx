@@ -15,7 +15,8 @@ type TAutocompleteOptions =
 export default function CitySearch() {
   const [query, setQuery] = useState<string>('');
   const navigate = useNavigate();
-  const [curentOption, setCurentOption] = useState<TAutocompleteOptions>(null);
+  const [currentOption, setCurrentOption] =
+    useState<TAutocompleteOptions>(null);
 
   const { data } = useQuery(
     [`SearchCity`, query],
@@ -48,7 +49,7 @@ export default function CitySearch() {
       return;
     }
 
-    setCurentOption(value);
+    setCurrentOption(value);
     navigate(`/${value.label}`, { state: { lat: value.lat, lon: value.lon } });
   };
 
@@ -71,7 +72,7 @@ export default function CitySearch() {
           label: `${value.name}, ${value?.state ?? ''} ${value.country}`,
         })) ?? []
       }
-      value={curentOption}
+      value={currentOption}
       filterOptions={(x) => x}
       onChange={changeValue}
       onInputChange={debounce(changeHandler, 500)}
@@ -79,7 +80,7 @@ export default function CitySearch() {
         <TextField
           {...params}
           variant="outlined"
-          placeholder="Writte something"
+          placeholder="Write something"
           size="small"
           hiddenLabel
         />

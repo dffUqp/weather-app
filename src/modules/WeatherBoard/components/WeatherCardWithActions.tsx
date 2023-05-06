@@ -10,10 +10,10 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import { addCards, deleteCards } from 'src/store/slices/weatherCardsSlice';
 
-import BgHover from 'src/components/UI/BgHover';
-import Loader from 'src/components/UI/Loader';
 import { isFavoriteSelector } from 'src/store/selectors';
-import WeatherCard from './WeatherCard';
+import Loader from 'src/components/UI/Loader';
+import WeatherCard from 'src/components/WeatherCard';
+import BgHover from 'src/components/UI/BgHover';
 
 interface WeatherCardWithActionsProps extends TWeatherCoord {}
 

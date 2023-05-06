@@ -9,7 +9,7 @@ type WeatherInfoProps = {
   speed: number;
 } & BoxProps<'div'>;
 
-export default function WeatherInfo({
+export default function WeatherInfoBlock({
   feels_like,
   humidity,
   speed,

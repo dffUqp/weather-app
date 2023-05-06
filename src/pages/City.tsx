@@ -1,6 +1,6 @@
 import Container from '@mui/material/Container';
 import { Navigate, useLocation } from 'react-router-dom';
-import CityWeatherInfo from 'src/components/City/CityWeatherInfo';
+import { CityWeatherInfo } from 'src/modules/CityWeatherInfo';
 
 import type { TWeatherCoord } from 'src/ts/extraTypes';
 

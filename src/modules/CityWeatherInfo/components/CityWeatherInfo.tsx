@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { Box, Paper, Typography, IconButton } from '@mui/material';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
@@ -10,14 +9,13 @@ import {
   isFullFavoriteListSelector,
 } from 'src/store/selectors';
 import WeatherService from 'src/services/weatherServices';
-import Loader from 'src/components/UI/Loader';
 import type { TWeatherCoord } from 'src/ts/extraTypes';
 import { backgroundValuesMap, iconUrlFromCode, toLocalTime } from 'src/utils';
 import { addCards, deleteCards } from 'src/store/slices/weatherCardsSlice';
 import { setBackgroundColor } from 'src/store/slices/themeSlice';
-
-import WeatherInfo from '../WeatherInfo';
-import { HourlyForecast } from '../HourlyForecast';
+import WeatherInfoBlock from 'src/components/WeatherInfoBlock';
+import Loader from 'src/components/UI/Loader';
+import HourlyForecast from './HourlyForecast';
 
 interface CityWeatherInfoProps {
   coord: TWeatherCoord;
@@ -116,7 +114,7 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
           </IconButton>
         </Box>
 
-        <WeatherInfo
+        <WeatherInfoBlock
           mt={2}
           humidity={data.humidity}
           speed={data.speed}

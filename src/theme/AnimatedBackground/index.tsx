@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Box } from '@mui/material';
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
-import gradientAnimation from 'src/utils/gradientAnimation';
 import { setCurrentBackgroundValue } from 'src/store/slices/themeSlice';
 import {
   backgroundColorSelector,
   currentBackgroundValueSelector,
   newBackgroundValueSelector,
 } from 'src/store/selectors';
+import gradientAnimation from './gradientAnimation';
 
 const AnimatedBackground = () => {
   const newBackgroundValue = useAppSelector(newBackgroundValueSelector);

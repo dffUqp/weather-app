@@ -1,7 +1,7 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { muiTheme } from 'src/lib';
 import { useAppSelector } from 'src/store/hooks';
 import AnimatedBackground from './AnimatedBackground';
+import MuiTheme from './theme';
 
 interface IMuiWrapperProps {
   children: JSX.Element;
@@ -14,7 +14,7 @@ export default function MuiWrapper({
     (state) => state.persistedReducer.themeReducer.backgroundColor
   );
 
-  const theme = muiTheme({ backgroundColor });
+  const theme = MuiTheme({ backgroundColor });
 
   return (
     <ThemeProvider theme={theme}>

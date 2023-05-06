@@ -19,12 +19,14 @@ const Loadable = (Component: React.LazyExoticComponent<() => JSX.Element>) =>
 
 const City = Loadable(lazy(() => import('src/pages/City')));
 const Home = Loadable(lazy(() => import('src/pages/Home')));
-const RootLayout = Loadable(lazy(() => import('src/layouts/RootLayout')));
+const CitySearchLayout = Loadable(
+  lazy(() => import('src/layouts/CitySearchLayout'))
+);
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />,
+    element: <CitySearchLayout />,
     children: [
       {
         index: true,

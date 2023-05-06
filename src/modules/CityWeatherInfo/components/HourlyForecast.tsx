@@ -1,8 +1,10 @@
 import { useQuery } from 'react-query';
-import { Box, Typography, Paper } from '@mui/material';
+import { Box } from '@mui/material';
 
 import WeatherService from 'src/services/weatherServices';
-import { iconUrlFromCode, toLocalTime } from 'src/utils';
+import { toLocalTime } from 'src/utils';
+import WeatherByTimeBlock from 'src/components/WeatherByTimeBlock';
+
 import HourlyForecastLoader from './HourlyForecastLoader';
 
 type THourlyForecastProps = {
@@ -32,28 +34,13 @@ export default function HourlyForecast({
         <HourlyForecastLoader />
       ) : (
         data.map((item) => (
-          <Paper
-            sx={{
-              maxWidth: '100px',
-              width: '100%',
-              height: '105px',
-              background: 'transparent',
-              textAlign: 'center',
-              p: '10px',
-            }}
+          <WeatherByTimeBlock
             key={item.dt}
-          >
-            <Typography>{`${toLocalTime(
-              item.dt,
-              timezone,
-              'h:mm a'
-            )}`}</Typography>
-            <Box display="flex" alignItems="center">
-              <img src={iconUrlFromCode(item.icon)} alt="" width={40} />
-              <Typography>{`${item.temp.toFixed()}°C`}</Typography>
-            </Box>
-            <Typography fontSize={14}>{item.details}</Typography>
-          </Paper>
+            time={toLocalTime(item.dt, timezone, 'h:mm a')}
+            icon={item.icon}
+            temp={item.temp}
+            details={item.details}
+          />
         ))
       )}
     </Box>

@@ -12,7 +12,7 @@ type TAutocompleteOptions =
     } & TWeatherCoord)
   | null;
 
-export default function CitySearch() {
+export default function CitySearch(): JSX.Element {
   const [query, setQuery] = useState<string>('');
   const navigate = useNavigate();
   const [currentOption, setCurrentOption] =

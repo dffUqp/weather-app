@@ -26,7 +26,9 @@ export default function HourlyForecast({
     <Box
       display="flex"
       gap="10px"
-      width="320px"
+      maxWidth="320px"
+      minWidth="210px"
+      width="100%"
       flexWrap="wrap"
       justifyContent={{ sm: 'flex-end', xs: 'flex-start' }}
     >

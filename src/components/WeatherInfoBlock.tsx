@@ -21,7 +21,7 @@ export default function WeatherInfoBlock({
       flexDirection="column"
       justifyContent="center"
       color="white"
-      fontSize={{ xs: 12, md: 16 }}
+      fontSize={16}
       {...props}
     >
       <Box display="flex" alignItems="center">
@@ -30,7 +30,7 @@ export default function WeatherInfoBlock({
         <Typography
           display="inline"
           ml={1}
-          fontSize={{ xs: 12, md: 16 }}
+          fontSize={16}
         >{`${feels_like.toFixed()}°`}</Typography>
       </Box>
       <Box display="flex" alignItems="center">
@@ -39,7 +39,7 @@ export default function WeatherInfoBlock({
         <Typography
           display="inline"
           ml={1}
-          fontSize={{ xs: 12, md: 16 }}
+          fontSize={16}
         >{`${humidity.toFixed()}%`}</Typography>
       </Box>
       <Box display="flex" alignItems="center">
@@ -48,7 +48,7 @@ export default function WeatherInfoBlock({
         <Typography
           display="inline"
           ml={1}
-          fontSize={{ xs: 12, md: 16 }}
+          fontSize={16}
         >{`${speed.toFixed()} km/h`}</Typography>
       </Box>
     </Box>

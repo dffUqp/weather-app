@@ -82,7 +82,12 @@ const CityWeatherInfo = ({ pathname, coord }: CityWeatherInfoProps) => {
       <Box>
         <Box display="flex" alignItems="start">
           <Box>
-            <img src={iconUrlFromCode(data.icon)} alt="" width={115} />
+            <img
+              src={iconUrlFromCode(data.icon)}
+              alt="weather icon"
+              width="115"
+              height="115"
+            />
 
             <Box display="flex" borderBottom="1px solid #D3D3D3">
               <Typography

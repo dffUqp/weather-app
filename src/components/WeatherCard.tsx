@@ -5,9 +5,14 @@ import WeatherInfoBlock from './WeatherInfoBlock';
 
 type TWeatherCardProps = {
   data: IFormattedWeather;
+  centredView?: boolean;
 } & PaperProps<'div'>;
 
-export default function WeatherCard({ data, ...props }: TWeatherCardProps) {
+export default function WeatherCard({
+  data,
+  centredView = false,
+  ...props
+}: TWeatherCardProps) {
   const {
     name,
     country,
@@ -40,10 +45,30 @@ export default function WeatherCard({ data, ...props }: TWeatherCardProps) {
         {name}, {country}
       </Typography>
 
-      <img src={iconUrlFromCode(icon)} alt="" width="100" />
+      <img
+        src={iconUrlFromCode(icon)}
+        alt="weather icon"
+        width="100"
+        height="100"
+      />
 
-      <Box alignSelf="start" px="15px" width="100%">
-        <Typography borderBottom="1px solid #D3D3D3">{`${data.details}`}</Typography>
+      <Box
+        display="flex"
+        flexDirection="column"
+        px="15px"
+        width="100%"
+        sx={{
+          alignItems: centredView ? 'center' : 'flex-start',
+        }}
+      >
+        <Typography>{`${data.details}`}</Typography>
+
+        <Box
+          width="100%"
+          marginY="5px"
+          height="0.5px"
+          sx={{ backgroundColor: '#D3D3D3' }}
+        />
 
         <Typography fontSize={48}>{`${temp.toFixed()}°C`}</Typography>
 

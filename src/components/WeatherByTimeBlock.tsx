@@ -27,7 +27,12 @@ const WeatherByTimeBlock = ({
     >
       <Typography>{time}</Typography>
       <Box display="flex" alignItems="center">
-        <img src={iconUrlFromCode(icon)} alt="" width={40} />
+        <img
+          src={iconUrlFromCode(icon)}
+          alt="weather icon"
+          width="40"
+          height="40"
+        />
         <Typography>{`${temp.toFixed()}°C`}</Typography>
       </Box>
       <Typography fontSize={14}>{details}</Typography>
